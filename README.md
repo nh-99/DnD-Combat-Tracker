@@ -1,5 +1,3 @@
-# NOTE: THIS (AND SOME OF MY OTHER WORK) NOW LIVES OVER HERE: https://github.com/EricBAndrews/
-
 ## D&D Combat Tracker
 
 A (hopefully) easy-to-use command line combat tracker for Dungeons and Dragons.
@@ -57,6 +55,8 @@ A table will appear with the creatures listed in order of initiative, with the c
 <a name="footnote1">1</a>: If you aren't used to using a terminal, here's a nice introduction to [Unix](https://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855) and [Windows](https://www.bleepingcomputer.com/tutorials/windows-command-prompt-introduction/). All you really need are the directory commands (cd and ls in Unix, cd and dir in Windows).
 
 ### Changelog
+- 2019.07.30
+  - Ported to Python 3
 - 2018.03.09
   - Added an abbreviated reference system: assigns each creature a number that can be used to target them instead of the verbose name
   - Added the ability to load players from .json files to experimental branch
