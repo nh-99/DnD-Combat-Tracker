@@ -75,7 +75,7 @@ class NPC(Creature):
 
     def addStatus(self):
         newStat = raw_input('  status name: ')
-        duration = raw_input('  duration: ')
+        duration = raw_input('  duration (rounds): ')
         if (duration != '-'):
             try:
                 duration = int(duration)
