@@ -175,6 +175,8 @@ def print_table(creatures, current_creature_number, message):
         table += str(index) + ' '
         if index < 100:
             table += ' '
+        if index < 10:
+            table += ' '
         table += '| '
         index += 1
     if isinstance(creature, PC):
@@ -200,7 +202,7 @@ def print_table(creatures, current_creature_number, message):
         table += str(creature.temp_hit_points) + temp_hit_points_buffer + ' |'
 
         if creature.status_effect == {}:
-            table += ' -' + (' '* (status_line_length - 2)) + '| -\n'
+            table += ' -' + (' ' * (status_line_length - 2)) + '| -\n'
         else:
             is_first = True
             for effect in creature.status_effect:
@@ -208,7 +210,7 @@ def print_table(creatures, current_creature_number, message):
                     is_first = False
                     table += ' ' + effect + (' ' * (status_line_length - len(effect) -1)) + '| '
                 else:
-                    table += (' ' * creature_line_length) + '|    |     | ' + effect + (' ' * (status_line_length - len(effect) -1)) + '| '
+                    table += (' ' * creature_line_length) + '|    |     | ' + effect + (' ' * (status_line_length - len(effect) - 1)) + '| '
                 if creature.status_effect[effect] == '-':
                     table += u'\u221e' + '\n'
                 else:
