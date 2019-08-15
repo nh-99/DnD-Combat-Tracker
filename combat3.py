@@ -179,42 +179,43 @@ def print_table(creatures, current_creature_number, message):
             table += ' '
         table += '| '
         index += 1
-    if isinstance(creature, PC):
-        table += '-  | -   | -   | - ' + (' ' * (status_line_length - 3)) + '| -\n'
-    else:
-        armor_class_buffer = ' '
-        if creature.armor_class / 10 == 0:
-            armor_class_buffer += ' '
-        table += str(creature.armor_class) + armor_class_buffer + '| '
-
-        hit_points_buffer = ''
-        if creature.current_hit_points / 100 == 0:
-            hit_points_buffer += ' '
-            if creature.current_hit_points / 10 == 0:
-                hit_points_buffer += ' '
-        table += str(creature.current_hit_points) + hit_points_buffer + ' | '
-
-        temp_hit_points_buffer = ''
-        if creature.temp_hit_points / 100 == 0:
-            temp_hit_points_buffer += ' '
-            if creature.temp_hit_points / 10 == 0:
-                temp_hit_points_buffer += ' '
-        table += str(creature.temp_hit_points) + temp_hit_points_buffer + ' |'
-
-        if creature.status_effect == {}:
-            table += ' -' + (' ' * (status_line_length - 2)) + '| -\n'
+        
+        if isinstance(creature, PC):
+            table += '-  | -   | -   | - ' + (' ' * (status_line_length - 3)) + '| -\n'
         else:
-            is_first = True
-            for effect in creature.status_effect:
-                if is_first:
-                    is_first = False
-                    table += ' ' + effect + (' ' * (status_line_length - len(effect) -1)) + '| '
-                else:
-                    table += (' ' * creature_line_length) + '|    |     | ' + effect + (' ' * (status_line_length - len(effect) - 1)) + '| '
-                if creature.status_effect[effect] == '-':
-                    table += u'\u221e' + '\n'
-                else:
-                    table += str(creature.status_effect[effect]) + '\n'
+            armor_class_buffer = ' '
+            if creature.armor_class / 10 == 0:
+                armor_class_buffer += ' '
+            table += str(creature.armor_class) + armor_class_buffer + '| '
+
+            hit_points_buffer = ''
+            if creature.current_hit_points / 100 == 0:
+                hit_points_buffer += ' '
+                if creature.current_hit_points / 10 == 0:
+                    hit_points_buffer += ' '
+            table += str(creature.current_hit_points) + hit_points_buffer + ' | '
+
+            temp_hit_points_buffer = ''
+            if creature.temp_hit_points / 100 == 0:
+                temp_hit_points_buffer += ' '
+                if creature.temp_hit_points / 10 == 0:
+                    temp_hit_points_buffer += ' '
+            table += str(creature.temp_hit_points) + temp_hit_points_buffer + ' |'
+
+            if creature.status_effect == {}:
+                table += ' -' + (' ' * (status_line_length - 2)) + '| -\n'
+            else:
+                is_first = True
+                for effect in creature.status_effect:
+                    if is_first:
+                        is_first = False
+                        table += ' ' + effect + (' ' * (status_line_length - len(effect) -1)) + '| '
+                    else:
+                        table += (' ' * creature_line_length) + '|    |     | ' + effect + (' ' * (status_line_length - len(effect) - 1)) + '| '
+                    if creature.status_effect[effect] == '-':
+                        table += u'\u221e' + '\n'
+                    else:
+                        table += str(creature.status_effect[effect]) + '\n'
     table += main_line[:-1]
     os.system('clear')
     print(table)
